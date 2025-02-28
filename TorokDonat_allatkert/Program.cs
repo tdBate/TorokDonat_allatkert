@@ -70,9 +70,18 @@
 
 			int allatkertMeret = 0;
 			bool marade = true;
+
+			Dictionary<string, int> nevekCount =new Dictionary<string, int>();
 			while (marade)
 			{
 				string allatNev = allatNevek[rnd.Next(0, allatNevek.Length)];
+
+				try {
+					nevekCount.Add(allatNev, 1);
+				} catch { nevekCount[allatNev] += 1; }
+
+				allatNev += " " + nevekCount[allatNev];
+
 				int meret= rnd.Next(1, 4);
 				if (allatkertMeret + meret <= allatkertMaxMeret)
 				{
