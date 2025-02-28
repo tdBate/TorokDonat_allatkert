@@ -35,7 +35,7 @@
 			while (marade)
 			{
 				string allatNev = allatNevek[rnd.Next(0, allatNevek.Length)];
-				int meret= rnd.Next(1, 5);
+				int meret= rnd.Next(1, 4);
 				if (allatkertMeret + meret <= allatkertMaxMeret)
 				{
 					allatok.Add(new Allat(allatNev, rnd.Next(1, 10), meret));
