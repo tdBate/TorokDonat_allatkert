@@ -2,6 +2,24 @@
 {
 	internal class Program
 	{
+		static void AllatkertRajz(int meret, int maxMeret)
+		{
+            Console.WriteLine("Állatkert rajza:");
+
+            //Console.Write(' ');
+            Console.WriteLine(string.Concat(Enumerable.Repeat("-",maxMeret+1)));
+			Console.Write("|");
+
+			Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(string.Concat(Enumerable.Repeat("■", meret)));
+			Console.Write(string.Concat(Enumerable.Repeat(" ", maxMeret-meret)));
+			Console.ForegroundColor = ConsoleColor.White;
+
+			Console.WriteLine("|");
+			//Console.Write(' ');
+			Console.WriteLine(string.Concat(Enumerable.Repeat("-", maxMeret+1)));
+		}
+
 		static void Main(string[] args)
 		{
 			Random rnd = new Random();
@@ -33,7 +51,8 @@
 			{
                 Console.WriteLine("\t"+allat);
             }
-			
+
+			AllatkertRajz(allatkertMeret,allatkertMaxMeret);
         }
 	}
 }
