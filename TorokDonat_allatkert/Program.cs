@@ -6,8 +6,8 @@
 		{
             Console.WriteLine("Állatkert rajza:");
 
-            //Console.Write(' ');
-            Console.WriteLine(string.Concat(Enumerable.Repeat("-",maxMeret+1)));
+            Console.Write(' ');
+            Console.WriteLine(string.Concat(Enumerable.Repeat("-",maxMeret)));
 			Console.Write("|");
 
 			Console.ForegroundColor = ConsoleColor.Green;
@@ -16,8 +16,8 @@
 			Console.ForegroundColor = ConsoleColor.White;
 
 			Console.WriteLine("|");
-			//Console.Write(' ');
-			Console.WriteLine(string.Concat(Enumerable.Repeat("-", maxMeret+1)));
+			Console.Write(' ');
+			Console.WriteLine(string.Concat(Enumerable.Repeat("-", maxMeret)));
 		}
 
 		static void Main(string[] args)
