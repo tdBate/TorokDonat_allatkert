@@ -20,6 +20,44 @@
 			Console.WriteLine(string.Concat(Enumerable.Repeat("-", maxMeret)));
 		}
 
+		static void Verseny(List<Allat> allatok)
+		{
+			Console.Clear();
+			Console.CursorVisible = false;
+			
+
+			bool marade = true;
+			int palyameret = 100;
+			int nyertesIndex = 0;
+			while (marade)
+			{
+				Console.SetCursorPosition(0, 0);
+				for (int a = 0; a < allatok.Count; a++)
+				{
+					
+					Console.Write(new string(' ', Console.WindowWidth));
+					//Console.Write(allatok[a].Nev);
+					Console.Write(allatok[a].Nev.PadRight(15,' '));
+
+                    Console.WriteLine(String.Concat(Enumerable.Repeat(" ",allatok[a].Pozicio))+"O");
+
+					Thread.Sleep(100);
+
+					allatok[a].Pozicio += allatok[a].Sebesseg;
+					if (allatok[a].Pozicio >= palyameret && marade)
+					{
+						nyertesIndex = a;
+						marade = false;
+					}
+                }
+			}
+
+			Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nA nyertes: " + allatok[nyertesIndex].Nev);
+			Console.ForegroundColor = ConsoleColor.White;
+
+		}
+
 		static void Main(string[] args)
 		{
 			Random rnd = new Random();
@@ -38,7 +76,7 @@
 				int meret= rnd.Next(1, 4);
 				if (allatkertMeret + meret <= allatkertMaxMeret)
 				{
-					allatok.Add(new Allat(allatNev, rnd.Next(1, 10), meret));
+					allatok.Add(new Allat(allatNev, rnd.Next(1, 11), meret));
 					allatkertMeret += meret;
 				}
 				else { marade = false; }
@@ -53,6 +91,7 @@
             }
 
 			AllatkertRajz(allatkertMeret,allatkertMaxMeret);
+			Verseny(allatok);
         }
 	}
 }
