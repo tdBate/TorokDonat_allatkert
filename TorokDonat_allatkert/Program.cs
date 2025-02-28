@@ -26,6 +26,13 @@
 				else { marade = false; }
 			}
 
+            Console.WriteLine($"Állatkert mérete: {allatkertMaxMeret}");
+			Console.WriteLine($"Állatkert telítettsége: {Math.Round((allatkertMeret/ Convert.ToDouble(allatkertMaxMeret)),4)*100}%");
+			Console.WriteLine("Állatkert tartalma:");
+            foreach (Allat allat in allatok)
+			{
+                Console.WriteLine("\t"+allat);
+            }
 			
         }
 	}

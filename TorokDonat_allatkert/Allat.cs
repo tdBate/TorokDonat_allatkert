@@ -22,5 +22,10 @@ namespace TorokDonat_allatkert
 		public string Nev { get => nev; set => nev = value; }
 		public int Sebesseg { get => sebesseg; set => sebesseg = value; }
 		public int Meret { get => meret; set => meret = value; }
+
+		public override string ToString()
+		{
+			return $"Név: {this.nev}, Sebesség: {this.sebesseg}, Méret:{this.Meret}";
+		}
 	}
 }
