@@ -100,7 +100,14 @@
             }
 
 			AllatkertRajz(allatkertMeret,allatkertMaxMeret);
-			Verseny(allatok);
+
+            Console.Write("Szeretné versenyezteni az állatokat? [Y/N]: ");
+			string valasz = Console.ReadLine().ToLower();
+
+			if (valasz == "y")
+			{
+				Verseny(allatok);
+			}
         }
 	}
 }
