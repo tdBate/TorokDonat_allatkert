@@ -13,8 +13,8 @@ namespace TorokDonat_allatkert
 		private int meret;
 		private int pozicio;
 
-		public Allat(string nev, int sebesseg, int meret)
-		{
+		public Allat(string nev, int sebesseg, int meret) 
+        {
 			this.nev = nev;
 			this.sebesseg = sebesseg;
 			this.meret = meret;
