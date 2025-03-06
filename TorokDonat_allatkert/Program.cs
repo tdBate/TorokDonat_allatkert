@@ -72,24 +72,33 @@
 			bool marade = true;
 
 			Dictionary<string, int> nevekCount =new Dictionary<string, int>();
-			while (marade)
-			{
-				string allatNev = allatNevek[rnd.Next(0, allatNevek.Length)];
+            while (marade)
+            {
+                string tipus = allatNevek[rnd.Next(0,allatNevek.Length)];
+                string nev = tipus;
+                
+                if (!nevekCount.ContainsKey(nev))
+                    nevekCount[nev] = 1;
+                else
+                    nevekCount[nev]++;
+                nev += " " + nevekCount[nev];
 
-				try {
-					nevekCount.Add(allatNev, 1);
-				} catch { nevekCount[allatNev] += 1; }
-
-				allatNev += " " + nevekCount[allatNev];
-
-				int meret= rnd.Next(1, 4);
-				if (allatkertMeret + meret <= allatkertMaxMeret)
-				{
-					allatok.Add(new Allat(allatNev, rnd.Next(1, 11), meret));
-					allatkertMeret += meret;
-				}
-				else { marade = false; }
-			}
+                int meret = rnd.Next(1, 4);
+                if (allatkertMeret + meret <= allatkertMaxMeret)
+                {
+                    //Console.WriteLine(nev);
+                    switch (tipus)
+                    {
+                        case "Görög teknős": allatok.Add(new GorogTeknos(nev, rnd.Next(1, 11), meret)); break;
+                        case "Jegesmedve": allatok.Add(new Jegesmedve(nev, rnd.Next(1, 11), meret)); break;
+                        case "Kaméleon": allatok.Add(new Kameleon(nev, rnd.Next(1, 11), meret)); break;
+                        case "Nyúl": allatok.Add(new Nyul(nev, rnd.Next(1, 11), meret)); break;
+                        case "Ponty": allatok.Add(new Ponty(nev, rnd.Next(1, 11), meret)); break;
+                    }
+                    allatkertMeret += meret;
+                }
+                else { marade = false; }
+            }
 
             Console.WriteLine($"Állatkert mérete: {allatkertMaxMeret}");
 			Console.WriteLine($"Állatkert telítettsége: {Math.Round((allatkertMeret/ Convert.ToDouble(allatkertMaxMeret)),4)*100}%");

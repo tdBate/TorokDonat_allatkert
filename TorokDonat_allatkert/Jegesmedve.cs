@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TorokDonat_allatkert
 {
-    internal class JegesMedve : Allat
+    internal class Jegesmedve : Allat
     {
         private string nev;
         private int sebesseg;
         private int meret;
         private int pozicio;
 
-        public JegesMedve(string nev, int sebesseg, int meret) : base(nev, sebesseg, meret)
+        public Jegesmedve(string nev, int sebesseg, int meret) : base(nev, sebesseg, meret)
         {
             this.nev = nev;
             this.sebesseg = sebesseg;
